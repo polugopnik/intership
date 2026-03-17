@@ -18,6 +18,5 @@ void main() {
       charCount[char] = 1;
     }
   }
-
   print(charCount);
 }
