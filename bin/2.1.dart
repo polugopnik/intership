@@ -29,18 +29,35 @@ void main() {
       'inStock' : true,
     },
   ];
-var kosarBolshe = products.where((product){
- return product ['price'] > 1000;
-}).toList();
-print(kosarBolshe);
-var naSklade = products.where ((product){
-  return product ['inStock'] == true;
-}).toList();
-print(naSklade);
-var sorted = List<Map<String, dynamic>>.from(products);
-sorted.sort((a,b){
-  return a['name'].compareTo(b['name']);
-});
-print(sorted);
+  List<Map<String, dynamic>> getExp(
+      List<Map<String, dynamic>> products) {
+    List<Map<String, dynamic>> results = [];
+    for (var product in products) {
+      if (product['price'] > 1000) {
+        results.add(product);
+      }
+    }
+    return results;
+  }
+ print(getExp(products));
 
+  List<Map<String, dynamic>> getInS(
+      List<Map<String, dynamic>> products) {
+    List<Map<String, dynamic>> results = [];
+    for (var product in products) {
+      if (product['inStock'] == true) {
+        results.add(product);
+      }
+    }
+    return results;
+  }
+  print(getInS(products));
+
+  List<Map<String, dynamic>> Alphabet(
+      List<Map<String, dynamic>> products) {
+    List<Map<String, dynamic>> results = [...products];
+    results.sort((a, b) => a['name'].compareTo(b['name']));
+    return results;
+  }
+  print(Alphabet(products));
 }
