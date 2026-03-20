@@ -19,4 +19,10 @@ void main() {
     }
   }
   print(charCount);
+  Set<String> words = {};
+  List<String> result = text.split(' ');
+  for (String word in result){
+    words.add(word);
+  }
+  print(words.length);
 }
