@@ -1,9 +1,9 @@
 import 'dart:io';
-void main(){
+void main() {
   while (true) {
     print('Введите выражение:');
     String input = stdin.readLineSync()!;
-    if(input == 'exit'){
+    if (input == 'exit') {
       break;
     }
     if (!RegExp(r'^[0-9+\-*/\s]+$').hasMatch(input)) {
@@ -15,14 +15,31 @@ void main(){
       print('Некорректный ввод');
       continue;
     }
-    int a =  int.parse(stroki[0]);
+    if (int.tryParse(stroki[0]) == null || int.tryParse(stroki[2]) == null) {
+      print('Некорректный ввод');
+      continue;
+    }
+    int a = int.parse(stroki[0]);
     String oper = stroki[1];
-    int b =  int.parse(stroki[2]);
-    if (oper == '/' && b == 0){
+    int b = int.parse(stroki[2]);
+    if (oper == '/' && b == 0) {
       print('На ноль делить нельзя');
       continue;
-
     }
-
+    if (oper == '+') {
+      print(a + b);
+    } else if (oper == '-') {
+      print(a - b);
+    } else if (oper == '*') {
+      print(a * b);
+    } else if (oper == '/') {
+      print(a / b);
+    } else {
+      print('Некорректный ввод');
+    }
   }
 }
+
+
+
+
