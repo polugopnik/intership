@@ -14,7 +14,7 @@ void main() {
   }
   print(pokupki);
   File file = File('pokupki.txt');
-  file.writeAsStringSync(pokupki.join(', '));
+  file.writeAsStringSync(pokupki.join('\n'));
 
   print('Список сохранён в файл pokupki.txt');
 
