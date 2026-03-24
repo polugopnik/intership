@@ -3,7 +3,7 @@ void main() {
   while (true) {
     print('Введите выражение:');
     String input = stdin.readLineSync()!;
-    if (input == 'exit') {
+    if (input == 'exit' || input == 'q') {
       break;
     }
     if (!RegExp(r'^[0-9+\-*/\s]+$').hasMatch(input)) {
