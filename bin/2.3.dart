@@ -24,9 +24,9 @@ void main() {
   int row = int.parse(coord[1]) - 1;
 
   print('Цвет клетки: ${board[row][col]}');
-  for (List<String> currentRow in board){
-    for (String cell in currentRow){
-      stdout.write('$cell ');
+  for (int row = 0; row < board.length;row++) {
+    for (int col = 0; col < board[row].length; col++){
+      stdout.write('${board[row][col]} ');
     }
     print('');
   }
