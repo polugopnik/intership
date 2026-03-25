@@ -8,4 +8,6 @@ void runTask3 (){
   File count = File('count.txt');
   count.writeAsStringSync('Количество строк:$lineCount\nКоличество слов:$wordCount');
   print(count.readAsStringSync());
+  lines.add('Количество строк:$lineCount\nКоличество слов:$wordCount');
+  file.writeAsStringSync(lines.join('\n'));
 }
