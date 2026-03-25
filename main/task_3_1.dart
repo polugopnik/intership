@@ -1,5 +1,5 @@
 import 'dart:io';
-void main() {
+void runTask1() {
   List<String> pokupki = [];
 
   while (true) {

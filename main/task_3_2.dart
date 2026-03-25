@@ -1,5 +1,5 @@
 import 'dart:io';
-void main (){
+void runTask2 (){
   File file = File('pokupki.txt');
   String text = file.readAsStringSync();
 
