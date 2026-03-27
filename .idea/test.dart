@@ -9,11 +9,16 @@ class Users {
 
   @override
   toString(){
-    return 'Имя: $name, Возраст: $age, Пол: $sex, Дата рождения: $birthdate';
+    return '$name|$age|$sex|$birthdate';
   }
 }
 void main (){
-  List<Users> users = [];
+  File fileUsers = File('users.txt');
+  List<String> oldUsers = [];
+  if (fileUsers.existsSync()) {
+    oldUsers = fileUsers.readAsLinesSync();
+  }
+  print(oldUsers);
   while (true) {
 
     stdout.write('Введите имя: ');
@@ -40,12 +45,16 @@ void main (){
 
     Users newUser = Users(name, age, sex, DateTime(year, month, day));
 
-    users.add(newUser);
+    oldUsers.add(newUser.toString());
 
-    print('Пользователь ${users.last.name} добавлен');
-    print('Всего пользователей: ${users.length}');
+    print('Пользователь ${newUser.name} добавлен');
+    print('Всего пользователей: ${oldUsers.length}');
+
+    fileUsers.writeAsStringSync(oldUsers.join('\n'));
+
   }
-  for (int i = 0;i<users.length;i++){
-    print(users[i].toString());
+  for (int i = 0;i<oldUsers.length;i++){
+    print(oldUsers[i]);
   }
+
 }
