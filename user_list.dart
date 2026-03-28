@@ -16,34 +16,15 @@ class Users {
     return '$id|$name|$age|$sex|${birthdate.toIso8601String().split('T')[0]}';
   }
 }
-void userDelete () {
+void userList () {
   File fileUsers = File('users.txt');
   List<String> oldUsers = [];
   if (fileUsers.existsSync()) {
     oldUsers = fileUsers.readAsLinesSync();
   }
   print('Список пользователей:');
-  print(fileUsers.readAsStringSync());
-  print('Введите id пользователя, которого хотите удалить:');
-  int inputID = int.parse(stdin.readLineSync()!);
-  String choice = stdin.readLineSync()!;
-  if (choice == 'q'){
-    break;
-  }
-
-
-  for (int i =0; i < oldUsers.length;i++){
+  for (int i = 0;i<oldUsers.length;i++){
     List<String> parts = oldUsers[i].split('|');
-    int currentID = int.parse(parts[0]);
-
-    if (currentID == inputID) {
-      oldUsers.removeAt(i);
-      break;
-
+    print('id: ${parts[0]} Имя: ${parts[1]}, Возраст: ${parts[2]}, Пол: ${parts[3]}, Дата рождения: ${parts[4]}');
   }
-  }
-  fileUsers.writeAsStringSync(oldUsers.join('\n'));
-
-  print(fileUsers.readAsLinesSync());
-
 }

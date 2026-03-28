@@ -22,8 +22,9 @@ void userCreate (){
   if (fileUsers.existsSync()) {
     oldUsers = fileUsers.readAsLinesSync();
   }
-  print(oldUsers);
   while (true) {
+
+    print('Введите stop, чтобы завершить добавление пользователей' );
 
     stdout.write('Введите имя: ');
     String name = stdin.readLineSync()!;
@@ -68,8 +69,4 @@ void userCreate (){
     fileUsers.writeAsStringSync(oldUsers.join('\n'));
 
   }
-  for (int i = 0;i<oldUsers.length;i++){
-    print(oldUsers[i]);
-  }
-
 }
