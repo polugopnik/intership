@@ -1,32 +1,32 @@
 import 'dart:io';
-import 'user_create.dart';
-import 'user_delete.dart';
-import 'user_edit.dart';
-import 'user_list.dart';
-import 'user_search.dart';
-
+import 'user.dart';
+import 'user_service.dart';
 void main() {
+  UserService myUserService = UserService();
   while (true) {
     print('Выберите задачу:');
-    print('1 - Добавить нового пользователя');
-    print('2 - Удалить пользователя');
-    print('3 - Редактировать пользователя');
-    print('4 - Показать список пользователей');
-    print('5 - Поиск пользователя по имени');
+    print('1 - Добавить нового пользователя - мужчина');
+    print('2 - Добавить нового пользователя - женщина');
+    print('3 - Удалить пользователя');
+    print('4 - Редактировать пользователя');
+    print('5 - Показать список пользователей');
+    print('6 - Поиск пользователя по имени');
 
 
     String choice = stdin.readLineSync()!;
 
     if (choice == '1') {
-      userCreate();
+      myUserService.userCreateMan();
     } else if (choice == '2') {
-      userDelete();
+      myUserService.userCreateWoman();
     } else if (choice == '3') {
-      userEdit();
+      myUserService.userDelete();
     } else if (choice == '4') {
-      userList();
+      myUserService.userEdit();
     } else if (choice == '5') {
-      userSearch();
+      myUserService.userList();
+    } else if (choice == '6') {
+      myUserService.userSearch();
     } else if (choice == 'q') {
       break;
     } else {
